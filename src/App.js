@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Here from './Here';
+import There from './There';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-test-div2"></div>
+      <Here className="App-add-margin" locationId="1">
+        <div className="App-test-div"></div>
+      </Here>
+      <div className="App-test-div2"></div>
+      <There sizeRef="1" className="App-make-yellow" />
     </div>
   );
 }
