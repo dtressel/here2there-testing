@@ -10,7 +10,6 @@ const There = (props) => {
     console.log("sizeRef = ", sizeRefElement);
     setHeight(sizeRefElement.offsetHeight);
     setWidth(sizeRefElement.offsetWidth);
-    // console.log(innerRef.current.getBoundingClientRect());
   }, []);
 
   return (
