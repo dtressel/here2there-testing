@@ -1,7 +1,4 @@
-.Here-outer {
+.Here-wrapper {
   position: relative;
-}
-
-.Here-inner {
-  position: absolute;
+  width: fit-content;
 }
