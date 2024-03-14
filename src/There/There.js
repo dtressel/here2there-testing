@@ -2,26 +2,26 @@ import { useEffect, useState } from 'react';
 import './There.css';
 
 const There = (props) => {
-  const { className, locationId, sizeRef, collapse } = props;
-  const [height, setHeight] = useState();
-  const [width, setWidth] = useState();
+  const { children, className, locationId, sizeRef } = props;
+  const [dimensions, setDimensions] = useState([]);
+
   useEffect(() => {
     const sizeRefElement = document.querySelector(`[data-h2t-location="${sizeRef}"]`);
-    console.log("sizeRef = ", sizeRefElement);
-    setHeight(sizeRefElement.offsetHeight);
-    setWidth(sizeRefElement.offsetWidth);
-  }, []);
+    setDimensions([sizeRefElement.offsetWidth, sizeRefElement.offsetHeight]);
+  }, [sizeRef]);
 
   return (
     <div 
-      className={`Here-outer${className ? ` ${className}` : ''}`} 
-      style={{ height: height, width: width }}
+      className={`There-outer${className ? ` ${className}` : ''}`}
+      style={{ width: dimensions[0], height: dimensions[1] }}
     >
       <div
-        className="Here-inner"
+        className="There-inner"
         data-h2t-location={locationId}
-        data-h2t-sizeRef={sizeRef}
-      ></div>
+        data-h2t-size-ref={sizeRef}
+      >
+        {children}
+      </div>
     </div>
   )
 }

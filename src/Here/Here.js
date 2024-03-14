@@ -1,22 +1,28 @@
 import { useRef, useEffect, useState } from 'react';
 import './Here.css';
+import move from '../move';
 
 const Here = (props) => {
-  const { children, className, locationId, collapse } = props;
-  // collapse: 'never', 'when-empty', 'after-emptied'
+  const { children, className, locationId, moveTo } = props;
   const innerRef = useRef();
-  const [height, setHeight] = useState();
-  const [width, setWidth] = useState();
+  const [dimensions, setDimensions] = useState([]);
+  const [position, setPosition] = useState([0, 0]);
+
   useEffect(() => {
-    setHeight(innerRef.current.offsetHeight);
-    setWidth(innerRef.current.offsetWidth);
-    console.log(innerRef.current.getBoundingClientRect());
+    setDimensions([innerRef.current.offsetWidth, innerRef.current.offsetHeight]);
   }, []);
+
+  useEffect(() => {
+    if (moveTo) {
+      const newPosition = move(locationId, moveTo);
+      setPosition(newPosition);
+    }
+  }, [moveTo, locationId]);
 
   return (
     <div 
       className={`Here-outer${className ? ` ${className}` : ''}`} 
-      style={{ height: height, width: width }}
+      style={{ width: dimensions[0], height: dimensions[1], left: position[0], top: position[1] }}
     >
       <div
         className="Here-inner"
