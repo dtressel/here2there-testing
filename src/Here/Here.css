@@ -1,9 +1,10 @@
-.Here-outer {
+.Here-inner {
   position: relative;
   transition: top 2s, left 2s;
   z-index: 1;
+  width: max-content;
 }
 
-.Here-inner {
-  position: absolute;
+.Here-middle {
+  width: max-content;
 }

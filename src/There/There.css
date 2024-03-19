@@ -1,8 +1,4 @@
 .There-outer {
-  position: relative;
+  width: max-content;
   overflow: hidden;
-}
-
-.There-inner {
-  position: absolute;
 }

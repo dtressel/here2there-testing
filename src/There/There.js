@@ -13,10 +13,10 @@ const There = (props) => {
   return (
     <div 
       className={`There-outer${className ? ` ${className}` : ''}`}
-      style={{ width: dimensions[0], height: dimensions[1] }}
     >
       <div
         className="There-inner"
+        style={{ width: dimensions[0], height: dimensions[1] }}
         data-h2t-location-id={locationId}
         data-h2t-size-ref={sizeRef}
       >
