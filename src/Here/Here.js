@@ -15,10 +15,10 @@ const Here = (props) => {
 
   useEffect(() => {
     if (move) {
-      const newPosition = findLeftAndTop(locationId, move.to);
-      const transitionString = buildTransitionString(move);
+      const newPosition = findLeftAndTop(locationId, move.to, position);
+      const transitionString = buildTransitionString(move, newPosition.xMove, newPosition.yMove);
       setTransition(transitionString);
-      setPosition(newPosition);
+      setPosition([newPosition.xMoveFromOrig, newPosition.yMoveFromOrig]);
     }
   }, [move, locationId]);
 
@@ -36,7 +36,7 @@ const Here = (props) => {
       <div
         className="Here-inner"
         ref={innerRef}
-        data-h2t-location={locationId}
+        data-h2t-location-id={locationId}
       >
         {children}
       </div>

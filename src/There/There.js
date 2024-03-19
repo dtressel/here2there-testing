@@ -6,7 +6,7 @@ const There = (props) => {
   const [dimensions, setDimensions] = useState([]);
 
   useEffect(() => {
-    const sizeRefElement = document.querySelector(`[data-h2t-location="${sizeRef}"]`);
+    const sizeRefElement = document.querySelector(`[data-h2t-location-id="${sizeRef}"]`);
     setDimensions([sizeRefElement.offsetWidth, sizeRefElement.offsetHeight]);
   }, [sizeRef]);
 
@@ -17,7 +17,7 @@ const There = (props) => {
     >
       <div
         className="There-inner"
-        data-h2t-location={locationId}
+        data-h2t-location-id={locationId}
         data-h2t-size-ref={sizeRef}
       >
         {children}
