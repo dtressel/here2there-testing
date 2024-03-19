@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Here.css';
-import { findLeftAndTop, buildTransitionString } from '../helpers/mover';
+import { findLeftAndTop, findMoveDistance, buildTransitionString } from '../helpers/mover';
 
 const Here = (props) => {
   const { children, className, locationId, move } = props;
@@ -10,9 +10,10 @@ const Here = (props) => {
   useEffect(() => {
     if (move) {
       const newPosition = findLeftAndTop(locationId, move.to, position);
-      const transitionString = buildTransitionString(move, newPosition.xMove, newPosition.yMove);
+      const moveDistance = findMoveDistance(newPosition, position);
+      const transitionString = buildTransitionString(move, moveDistance[0], moveDistance[1]);
       setTransition(transitionString);
-      setPosition([newPosition.xMoveFromOrig, newPosition.yMoveFromOrig]);
+      setPosition(newPosition);
     }
   }, [move, locationId]);
 

@@ -3,11 +3,15 @@ function findLeftAndTop(fromId, toId, position) {
   const toElement = document.querySelector(`[data-h2t-location-id="${toId}"]`);
   const fromCoord = fromElement.getBoundingClientRect();
   const toCoord = toElement.getBoundingClientRect();
-  const xMove = toCoord.x - fromCoord.x;
-  const yMove = toCoord.y - fromCoord.y;
-  const xMoveFromOrig = xMove + position[0];
-  const yMoveFromOrig = yMove + position[1];
-  return { xMove, yMove, xMoveFromOrig, yMoveFromOrig };
+  const xMoveFromOrig = toCoord.x - fromCoord.x;
+  const yMoveFromOrig = toCoord.y - fromCoord.y;
+  return [xMoveFromOrig, yMoveFromOrig];
+}
+
+function findMoveDistance(newPosition, oldPosition) {
+  const xMove = newPosition[0] - oldPosition[0];
+  const yMove = newPosition[1] - oldPosition[1];
+  return [xMove, yMove];
 }
 
 function buildTransitionString(moveObj, xMove, yMove) {
@@ -117,4 +121,4 @@ function getTimeInMS(timeStr) {
   return undefined;
 }
 
-export { findLeftAndTop, buildTransitionString };
+export { findLeftAndTop, findMoveDistance, buildTransitionString };

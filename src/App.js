@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <button
         onClick={() => handleMove({ 
-          to: 2,
+          to: '2',
           duration: "200ms",
           timing: "ease-in-out"
         })}
