@@ -1,4 +1,4 @@
-function findLeftAndTop(fromId, toId, position) {
+function findLeftAndTop(fromId, toId) {
   const fromElement = document.querySelector(`[data-h2t-location-id="${fromId}"]`);
   const toElement = document.querySelector(`[data-h2t-location-id="${toId}"]`);
   const fromCoord = fromElement.getBoundingClientRect();

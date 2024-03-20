@@ -1,3 +1,17 @@
+.App {
+  height: 100vh;
+}
+
+.App-controls {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.App-here-container, .App-there-container {
+  margin: 5rem;
+}
+
 .App-test-div {
   height: 10rem;
   width: 10rem;
@@ -6,16 +20,35 @@
   border: 5px solid red;
 }
 
+.App-here-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.App-there-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .App-add-margin {
   margin: 10rem;
 }
 
-.App-test-div2 {
+.App-here-yellow, .App-here-red, .App-here-green {
   height: 10rem;
   width: 10rem;
-  padding: 2rem;
-  background-color: lightsalmon;
-  margin: 10rem;
+}
+
+.App-here-yellow {
+  background-color: yellow;
+}
+
+.App-here-red {
+  background-color: red;
+}
+
+.App-here-green {
+  background-color: green;
 }
 
 .App {

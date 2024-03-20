@@ -9,9 +9,11 @@ const Here = (props) => {
 
   useEffect(() => {
     if (move) {
+      console.log(move);
       const newPosition = findLeftAndTop(locationId, move.to, position);
       const moveDistance = findMoveDistance(newPosition, position);
       const transitionString = buildTransitionString(move, moveDistance[0], moveDistance[1]);
+      console.log(transitionString);
       setTransition(transitionString);
       setPosition(newPosition);
     }
