@@ -8,7 +8,7 @@
   justify-content: space-evenly;
 }
 
-.App-here-container, .App-there-container {
+.App-dock-container, .App-there-container {
   margin: 5rem;
 }
 
@@ -20,7 +20,7 @@
   border: 5px solid red;
 }
 
-.App-here-container {
+.App-dock-container {
   display: flex;
   justify-content: space-evenly;
 }

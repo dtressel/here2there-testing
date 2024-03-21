@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import Here from './Here';
-import There from './There';
+import Movable from './Movable';
+import Dock from './Dock';
 
 function App() {
   const [moveYellow, setMoveYellow] = useState();
@@ -19,13 +19,23 @@ function App() {
   }
   const handleMoveGreen = (event) => {
     event.preventDefault();
-    console.log(event);
-    setMoveGreen();
+    setMoveGreen({
+      to: event.target[0].value,
+      duration: `${event.target[1].value}ms`,
+      timing: event.target[2].value,
+      shape: event.target[3].value,
+      delay: `${event.target[4].value}ms`
+    });
   }
   const handleMoveRed = (event) => {
     event.preventDefault();
-    console.log(event);
-    setMoveRed();
+    setMoveRed({
+      to: event.target[0].value,
+      duration: `${event.target[1].value}ms`,
+      timing: event.target[2].value,
+      shape: event.target[3].value,
+      delay: `${event.target[4].value}ms`
+    });
   }
 
   return (
@@ -160,21 +170,30 @@ function App() {
           <button type="submit">Move Red Square</button>
         </form>
       </div>
-      <div className="App-here-container">
-        <Here locationId="1" move={moveYellow} >
-          <div className="App-here-yellow"></div>
-        </Here>
-        <Here locationId="2" move={moveGreen} >
-          <div className="App-here-green"></div>
-        </Here>
-        <Here locationId="3" move={moveRed} >
-          <div className="App-here-red"></div>
-        </Here>
+      <div className="App-dock-container">
+        <Dock sizeRef="yellow" locationId="1">
+          <div>something else</div>
+          <Movable movableId="yellow" move={moveYellow}>
+            <div className="App-here-yellow"></div>
+          </Movable>
+        </Dock>
+        <Dock sizeRef="green" locationId="2">
+          <div>something else</div>
+          <Movable movableId="green" move={moveGreen}>
+            <div className="App-here-green"></div>
+          </Movable>
+        </Dock>
+        <Dock sizeRef="red" locationId="3">
+          <div>something else</div>
+          <Movable movableId="red" move={moveRed}>
+            <div className="App-here-red"></div>
+          </Movable>
+        </Dock>
       </div>
-      <div className="App-there-container">
-        <There sizeRef="1" locationId="4" className="App-make-yellow" />
-        <There sizeRef="1" locationId="5" className="App-make-yellow" />
-        <There sizeRef="1" locationId="6" className="App-make-yellow" />
+      <div className="App-dock-container">
+        <Dock sizeRef="yellow" locationId="4" className="App-make-yellow" />
+        <Dock sizeRef="yellow" locationId="5" className="App-make-yellow" />
+        <Dock sizeRef="yellow" locationId="6" className="App-make-yellow" />
       </div>
     </div>
   );

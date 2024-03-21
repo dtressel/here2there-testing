@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
-import './There.css';
+import { useLayoutEffect, useState } from 'react';
+import './Dock.css';
 
-const There = (props) => {
+const Dock = (props) => {
   const { children, className, locationId, sizeRef } = props;
   const [dimensions, setDimensions] = useState([]);
 
-  useEffect(() => {
-    const sizeRefElement = document.querySelector(`[data-h2t-location-id="${sizeRef}"]`);
+  useLayoutEffect(() => {
+    const sizeRefElement = document.querySelector(`[data-h2t-movable-id="${sizeRef}"]`);
     setDimensions([sizeRefElement.offsetWidth, sizeRefElement.offsetHeight]);
   }, [sizeRef]);
 
   return (
     <div 
-      className={`There-outer${className ? ` ${className}` : ''}`}
+      className={`Dock-outer${className ? ` ${className}` : ''}`}
     >
       <div
-        className="There-inner"
+        className="Dock-inner"
         style={{ width: dimensions[0], height: dimensions[1] }}
         data-h2t-location-id={locationId}
         data-h2t-size-ref={sizeRef}
@@ -26,4 +26,4 @@ const There = (props) => {
   )
 }
 
-export default There;
+export default Dock;

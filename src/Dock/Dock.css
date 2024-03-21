@@ -1,0 +1,7 @@
+.Dock-outer {
+  width: max-content;
+}
+
+.Dock-inner {
+  position: relative;
+}
