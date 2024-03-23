@@ -1,7 +1,6 @@
-.Dock-outer {
-  width: max-content;
-}
-
-.Dock-inner {
+.h2t-Dock {
   position: relative;
+  box-sizing: content-box;
+  /* overflow: hidden; */
+  /* display: inline-block; */
 }

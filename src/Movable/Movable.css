@@ -1,6 +1,6 @@
-.Movable {
+.h2t-Movable {
   position: absolute;
-  transition: top 2s, left 2s;
   z-index: 1;
+  padding: inherit;
   /* width: max-content; */
 }

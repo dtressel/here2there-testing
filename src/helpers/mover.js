@@ -1,10 +1,13 @@
-function findLeftAndTop(fromId, toId) {
-  console.log(fromId);
-  console.log(toId);
-  const fromElement = document.querySelector(`[data-h2t-location-id="${fromId}"]`);
-  const toElement = document.querySelector(`[data-h2t-location-id="${toId}"]`);
+function findLeftAndTop(fromId, toId, honorPadding = true) {
+  const fromElement = document.querySelector(`[data-h2t-dock-id="${fromId}"]`);
+  const toElement = document.querySelector(`[data-h2t-dock-id="${toId}"]`);
   const fromCoord = fromElement.getBoundingClientRect();
   const toCoord = toElement.getBoundingClientRect();
+  if (honorPadding) {
+    const styles = window.getComputedStyle(toElement);
+    toCoord.x += Number(styles.paddingLeft.slice(0, -2));
+    toCoord.y += Number(styles.paddingTop.slice(0, -2));
+  }
   const xMoveFromOrig = toCoord.x - fromCoord.x;
   const yMoveFromOrig = toCoord.y - fromCoord.y;
   return [xMoveFromOrig, yMoveFromOrig];
@@ -39,7 +42,9 @@ function buildTransitionString(moveObj, xMove, yMove) {
 
 function buildInnerLTransitionString(moveObj, xMove, yMove) {
   // y before x
-  const xProportion = xMove / (xMove + yMove);
+  const xMoveAbs = Math.abs(xMove);
+  const yMoveAbs = Math.abs(yMove);
+  const xProportion = xMoveAbs / (xMoveAbs + yMoveAbs);
   const durationMS = getTimeInMS(moveObj.duration) || 2000;
   const delayMS = getTimeInMS(moveObj.delay) || 0;
   const xDuration = Math.round(xProportion * durationMS);
@@ -73,7 +78,9 @@ function buildInnerLTransitionString(moveObj, xMove, yMove) {
 
 function buildOuterLTransitionString(moveObj, xMove, yMove) {
   // x before y
-  const xProportion = xMove / (xMove + yMove);
+  const xMoveAbs = Math.abs(xMove);
+  const yMoveAbs = Math.abs(yMove);
+  const xProportion = xMoveAbs / (xMoveAbs + yMoveAbs);
   const durationMS = getTimeInMS(moveObj.duration, 2000);
   const delayMS = getTimeInMS(moveObj.delay, 0);
   const xDuration = Math.round(xProportion * durationMS);

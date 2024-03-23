@@ -2,26 +2,22 @@ import { useLayoutEffect, useState } from 'react';
 import './Dock.css';
 
 const Dock = (props) => {
-  const { children, className, locationId, sizeRef } = props;
+  const { children, className, dockId, sizeTo } = props;
   const [dimensions, setDimensions] = useState([]);
 
   useLayoutEffect(() => {
-    const sizeRefElement = document.querySelector(`[data-h2t-movable-id="${sizeRef}"]`);
-    setDimensions([sizeRefElement.offsetWidth, sizeRefElement.offsetHeight]);
-  }, [sizeRef]);
+    const sizeToElement = document.querySelector(`[data-h2t-movable-id="${sizeTo}"]`);
+    setDimensions([sizeToElement.offsetWidth, sizeToElement.offsetHeight]);
+  }, [sizeTo]);
 
   return (
-    <div 
-      className={`Dock-outer${className ? ` ${className}` : ''}`}
+    <div
+      className={`h2t-Dock${className ? ` ${className}` : ''}`}
+      style={{ width: dimensions[0], height: dimensions[1] }}
+      data-h2t-dock-id={dockId}
+      data-h2t-size-to={sizeTo}
     >
-      <div
-        className="Dock-inner"
-        style={{ width: dimensions[0], height: dimensions[1] }}
-        data-h2t-location-id={locationId}
-        data-h2t-size-ref={sizeRef}
-      >
-        {children}
-      </div>
+      {children}
     </div>
   )
 }

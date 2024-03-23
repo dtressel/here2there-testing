@@ -1,3 +1,29 @@
+# Here2There
+
+## <Dock> Component
+props:
+- dockId (required)
+- sizeTo
+- className
+- style
+
+## <Movable> Component
+props:
+- movableId (required)
+- move
+- className
+- style
+
+## move object
+properties:
+- to
+- duration
+- timing
+- shape
+- delay
+- honorPadding
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -171,29 +171,35 @@ function App() {
         </form>
       </div>
       <div className="App-dock-container">
-        <Dock sizeRef="yellow" locationId="1">
-          <div>something else</div>
+        <Dock sizeTo="yellow" dockId="1" className="App-dock-background">
+          <h4>Dock #1</h4>
           <Movable movableId="yellow" move={moveYellow}>
-            <div className="App-here-yellow"></div>
+            <div className="App-movable-yellow"></div>
           </Movable>
         </Dock>
-        <Dock sizeRef="green" locationId="2">
-          <div>something else</div>
+        <Dock sizeTo="green" dockId="2" className="App-dock-background">
+          <h4>Dock #2</h4>
           <Movable movableId="green" move={moveGreen}>
-            <div className="App-here-green"></div>
+            <div className="App-movable-green"></div>
           </Movable>
         </Dock>
-        <Dock sizeRef="red" locationId="3">
-          <div>something else</div>
+        <Dock sizeTo="red" dockId="3" className="App-dock-background">
+          <h4>Dock #3</h4>
           <Movable movableId="red" move={moveRed}>
-            <div className="App-here-red"></div>
+            <div className="App-movable-red"></div>
           </Movable>
         </Dock>
       </div>
       <div className="App-dock-container">
-        <Dock sizeRef="yellow" locationId="4" className="App-make-yellow" />
-        <Dock sizeRef="yellow" locationId="5" className="App-make-yellow" />
-        <Dock sizeRef="yellow" locationId="6" className="App-make-yellow" />
+        <Dock sizeTo="yellow" dockId="4" className="App-dock-background margin-1">
+          <h4>Dock #4</h4>
+        </Dock>
+        <Dock sizeTo="yellow" dockId="5" className="App-dock-background">
+          <h4>Dock #5</h4>
+        </Dock>
+        <Dock sizeTo="yellow" dockId="6" className="App-dock-background">
+          <h4>Dock #6</h4>
+        </Dock>
       </div>
     </div>
   );

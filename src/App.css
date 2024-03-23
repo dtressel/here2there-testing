@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   height: 100vh;
 }
@@ -25,29 +29,25 @@
   justify-content: space-evenly;
 }
 
-.App-there-container {
-  display: flex;
-  justify-content: space-around;
-}
-
 .App-add-margin {
   margin: 10rem;
 }
 
-.App-here-yellow, .App-here-red, .App-here-green {
+.App-movable-yellow, .App-movable-red, .App-movable-green {
   height: 10rem;
   width: 10rem;
+  border-radius: 8px;
 }
 
-.App-here-yellow {
+.App-movable-yellow {
   background-color: yellow;
 }
 
-.App-here-red {
+.App-movable-red {
   background-color: red;
 }
 
-.App-here-green {
+.App-movable-green {
   background-color: green;
 }
 
@@ -55,7 +55,16 @@
   background-color: rgb(151, 168, 183);
 }
 
-.App-make-yellow {
-  background-color: yellow;
-  padding: 2rem;
+.App-dock-background {
+  border: 1px dashed rgb(51, 51, 51);
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.margin-1 {
+  margin: 1rem;
+  padding: 1rem;
 }
