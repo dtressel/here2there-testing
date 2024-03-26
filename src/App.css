@@ -1,19 +1,23 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
-.App {
-  height: 100vh;
+.App h1 {
+  text-align: center;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.App h2 {
+  margin: 0;
+  margin-bottom: .5rem;
 }
 
 .App-controls {
-  padding: 2rem;
   display: flex;
-  justify-content: space-evenly;
-}
-
-.App-dock-container, .App-there-container {
-  margin: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .App-test-div {
@@ -27,6 +31,8 @@
 .App-dock-container {
   display: flex;
   justify-content: space-evenly;
+  margin: 1rem;
+  flex-wrap: wrap;
 }
 
 .App-add-margin {
@@ -51,13 +57,9 @@
   background-color: green;
 }
 
-.App {
-  background-color: rgb(151, 168, 183);
-}
-
 .App-dock-background {
   /* border: 1px dashed rgb(51, 51, 51); */
-  background-color: white;
+  background-color: rgb(239, 239, 239);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -67,4 +69,44 @@
 .margin-1 {
   margin: 1rem;
   padding: 1rem;
+}
+
+.App-form-container {
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  padding-top: 1rem;
+  margin: .3rem 1rem;
+}
+
+.App-form-container > form {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+}
+
+.App-form-container > form > button, .App-move-all-button {
+  grid-column: 2 / 3;
+  padding: .4rem;
+  border-radius: .2rem;
+  border: none;
+}
+
+.App-form-container > form > input, .App-form-container > form > select {
+  margin-bottom: .3rem;
+  padding: .2rem .4rem;
+  border-radius: .2rem;
+  border: none;
+}
+
+.App-form-container > form > label {
+  text-align: start;
+}
+
+.App-move-all-button {
+  padding: .8rem 3rem;
+}
+
+.App-move-all-button-wrapper {
+  display: flex;
+  justify-content: center;
 }
