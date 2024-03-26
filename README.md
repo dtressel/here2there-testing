@@ -6,6 +6,7 @@ props:
 - sizeTo
 - className
 - style
+- honorPadding
 
 ## <Movable> Component
 props:
@@ -21,8 +22,6 @@ properties:
 - timing
 - shape
 - delay
-- honorPadding
-
 
 # Getting Started with Create React App
 

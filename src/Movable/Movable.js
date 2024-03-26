@@ -3,7 +3,7 @@ import './Movable.css';
 import { findLeftAndTop, findMoveDistance, buildTransitionString } from '../helpers/mover';
 
 const Movable = (props) => {
-  const { children, className, movableId, move } = props;
+  const { children, className, movableId, move, style } = props;
   const [position, setPosition] = useState([0, 0]);
   const [transition, setTransition] = useState();
   const [home, setHome] = useState();
@@ -39,6 +39,7 @@ const Movable = (props) => {
     <div
       className={`h2t-Movable${className ? ` ${className}` : ''}`}
       style={{
+        ... style,
         left: position[0],
         top: position[1],
         transition: transition

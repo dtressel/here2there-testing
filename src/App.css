@@ -56,7 +56,7 @@
 }
 
 .App-dock-background {
-  border: 1px dashed rgb(51, 51, 51);
+  /* border: 1px dashed rgb(51, 51, 51); */
   background-color: white;
   border-radius: 8px;
   display: flex;

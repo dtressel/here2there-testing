@@ -1,9 +1,9 @@
-function findLeftAndTop(fromId, toId, honorPadding = true) {
+function findLeftAndTop(fromId, toId) {
   const fromElement = document.querySelector(`[data-h2t-dock-id="${fromId}"]`);
   const toElement = document.querySelector(`[data-h2t-dock-id="${toId}"]`);
   const fromCoord = fromElement.getBoundingClientRect();
   const toCoord = toElement.getBoundingClientRect();
-  if (honorPadding) {
+  if (toElement.dataset.h2tHonorPadding) {
     const styles = window.getComputedStyle(toElement);
     toCoord.x += Number(styles.paddingLeft.slice(0, -2));
     toCoord.y += Number(styles.paddingTop.slice(0, -2));
