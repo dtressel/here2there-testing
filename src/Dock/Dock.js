@@ -5,6 +5,7 @@ const Dock = (props) => {
   const { children, className, dockId, sizeTo, style, honorPadding } = props;
   const [dimensions, setDimensions] = useState([]);
 
+  // Sizes dock based on sizeTo prop
   useLayoutEffect(() => {
     const sizeToElement = document.querySelector(`[data-h2t-movable-id="${sizeTo}"]`);
     setDimensions([sizeToElement.offsetWidth, sizeToElement.offsetHeight]);

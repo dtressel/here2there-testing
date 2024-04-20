@@ -8,6 +8,7 @@ const Movable = (props) => {
   const [transition, setTransition] = useState();
   const [home, setHome] = useState();
 
+  // Creates an event listener to update position when on foreign dock
   useLayoutEffect(() => {
     function updatePositionOnResize() {
       if (move && move.to !== home) {
@@ -20,11 +21,13 @@ const Movable = (props) => {
     return () => window.removeEventListener('resize', updatePositionOnResize);
   }, [home, move, transition]);
   
+  // Sets home with home's dock ID on first render
   useEffect(() => {
     const self = document.querySelector(`[data-h2t-movable-id="${movableId}"]`);
     setHome(self.parentElement.dataset.h2tDockId);
   }, [movableId]);
 
+  // Creates transition and sets new position when move prop changes
   useEffect(() => {
     if (move) {
       const newPosition = findLeftAndTop(home, move.to);
