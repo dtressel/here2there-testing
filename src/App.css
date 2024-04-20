@@ -31,8 +31,13 @@
 .App-dock-container {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin: 1rem;
   flex-wrap: wrap;
+}
+
+.App-dock-container:last-of-type {
+  margin-top: 5rem;
 }
 
 .App-add-margin {

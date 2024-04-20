@@ -185,7 +185,10 @@ function App() {
       </div>
       <div className="App-dock-container">
         <Dock sizeTo="yellow" dockId="4" className="App-dock-background margin-1" honorPadding>
-          <h4>Dock #4</h4>
+          <div>
+            <h4>Dock #4</h4>
+            <div>(with padding)</div>
+          </div>
         </Dock>
         <Dock sizeTo="yellow" dockId="5" className="App-dock-background">
           <h4>Dock #5</h4>
