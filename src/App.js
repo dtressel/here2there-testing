@@ -1,3 +1,11 @@
+/*
+  TODOS:
+    1. Adjust z-index so moving movable doesn't pass behind other movables 
+      (set movable z-index higher while moving)
+    2. Figure out error handling when user doesn't include correct props
+    3. Write Documentation
+*/
+
 import { useState, useRef } from 'react';
 import './App.css';
 import Movable from './Movable';
